@@ -35,12 +35,10 @@ import SwiftUI
 struct ClockDayView: View {
   var time: Date
   var location: ClockLocation
-
   var dayOfMonth: Int {
     let dateComponents = Calendar.current.dateComponents(in: location.timeZone, from: time)
     return dateComponents.day ?? 1
   }
-
   var body: some View {
     Text("\(dayOfMonth)")
       .background(.white)

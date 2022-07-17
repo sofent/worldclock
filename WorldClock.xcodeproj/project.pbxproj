@@ -12,13 +12,15 @@
 		18D775C722AD944400AE281E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C622AD944400AE281E /* Assets.xcassets */; };
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
+		339159CC287DB7F40072F303 /* Solar in Frameworks */ = {isa = PBXBuildFile; productRef = 339159CB287DB7F40072F303 /* Solar */; };
+		339159CE287DB8CE0072F303 /* CountdownAnalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339159CD287DB8CE0072F303 /* CountdownAnalogView.swift */; };
+		339159D0287EFF340072F303 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339159CF287EFF340072F303 /* PickerView.swift */; };
 		A929FB8526DC6A9D00EE2B26 /* DayGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A929FB8426DC6A9D00EE2B26 /* DayGraphView.swift */; };
 		A93C736D26DFAC280063E0AB /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C736C26DFAC280063E0AB /* LocationDetailsView.swift */; };
 		A94611DB26D4059C00AC9D14 /* ClockLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94611DA26D4059C00AC9D14 /* ClockLocation.swift */; };
 		A94611DD26D405E400AC9D14 /* ClockLocationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94611DC26D405E400AC9D14 /* ClockLocationStorage.swift */; };
 		A957594B26D5B9CD001A5077 /* LocationSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957594A26D5B9CD001A5077 /* LocationSearchService.swift */; };
 		A9908A4726D44C48003378ED /* CitySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9908A4626D44C48003378ED /* CitySearch.swift */; };
-		A9AEB74726DC49DB00D50B17 /* Solar in Frameworks */ = {isa = PBXBuildFile; productRef = A9AEB74626DC49DB00D50B17 /* Solar */; };
 		A9D3D04626F2C6D400CC9ADC /* AnalogClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3D04526F2C6D400CC9ADC /* AnalogClock.swift */; };
 		A9E2E6FC26D49599005A8A7C /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2E6FB26D49599005A8A7C /* SearchResultsView.swift */; };
 		A9F31E7026F52CA9007DE049 /* ClockDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F31E6F26F52CA9007DE049 /* ClockDayView.swift */; };
@@ -34,6 +36,8 @@
 		18D775C922AD944400AE281E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		339159CD287DB8CE0072F303 /* CountdownAnalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownAnalogView.swift; sourceTree = "<group>"; };
+		339159CF287EFF340072F303 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		A929FB8426DC6A9D00EE2B26 /* DayGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGraphView.swift; sourceTree = "<group>"; };
 		A93C736C26DFAC280063E0AB /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		A94611DA26D4059C00AC9D14 /* ClockLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockLocation.swift; sourceTree = "<group>"; };
@@ -52,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9AEB74726DC49DB00D50B17 /* Solar in Frameworks */,
+				339159CC287DB7F40072F303 /* Solar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +68,7 @@
 			children = (
 				18D775BF22AD944300AE281E /* WorldClock */,
 				18D775BE22AD944300AE281E /* Products */,
+				339159CA287DB7F40072F303 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -94,6 +99,8 @@
 				18D775DA22AD963800AE281E /* LaunchScreen.storyboard */,
 				18D775CE22AD944400AE281E /* Info.plist */,
 				18D775C822AD944400AE281E /* Preview Content */,
+				339159CD287DB8CE0072F303 /* CountdownAnalogView.swift */,
+				339159CF287EFF340072F303 /* PickerView.swift */,
 			);
 			path = WorldClock;
 			sourceTree = "<group>";
@@ -104,6 +111,13 @@
 				18D775C922AD944400AE281E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		339159CA287DB7F40072F303 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A94611D926D4058700AC9D14 /* Models */ = {
@@ -143,7 +157,7 @@
 			);
 			name = WorldClock;
 			packageProductDependencies = (
-				A9AEB74626DC49DB00D50B17 /* Solar */,
+				339159CB287DB7F40072F303 /* Solar */,
 			);
 			productName = MyRWTutorial;
 			productReference = 18D775BD22AD944300AE281E /* WorldClock.app */;
@@ -224,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				339159CE287DB8CE0072F303 /* CountdownAnalogView.swift in Sources */,
 				A929FB8526DC6A9D00EE2B26 /* DayGraphView.swift in Sources */,
 				A957594B26D5B9CD001A5077 /* LocationSearchService.swift in Sources */,
 				A9FC4E3826EC028400E2B8FF /* DaytimeGraphicsView.swift in Sources */,
@@ -231,6 +246,7 @@
 				A9E2E6FC26D49599005A8A7C /* SearchResultsView.swift in Sources */,
 				A93C736D26DFAC280063E0AB /* LocationDetailsView.swift in Sources */,
 				A9D3D04626F2C6D400CC9ADC /* AnalogClock.swift in Sources */,
+				339159D0287EFF340072F303 /* PickerView.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
 				A94611DB26D4059C00AC9D14 /* ClockLocation.swift in Sources */,
 				A9FC4E3626EC026400E2B8FF /* LocationView.swift in Sources */,
@@ -447,7 +463,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A9AEB74626DC49DB00D50B17 /* Solar */ = {
+		339159CB287DB7F40072F303 /* Solar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A9AEB74526DC49DB00D50B17 /* XCRemoteSwiftPackageReference "Solar" */;
 			productName = Solar;

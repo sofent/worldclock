@@ -37,7 +37,7 @@ import Solar
 struct DaytimeGraphicsView: View {
   var date: Date
   var location: ClockLocation
-
+  
   func sunriseDecimalTime(for time: Date, at location: CLLocationCoordinate2D, timeZone: TimeZone) -> Double {
     let solar = Solar(for: time, coordinate: location)
     guard let sunrise = solar?.sunrise else {
@@ -53,13 +53,13 @@ struct DaytimeGraphicsView: View {
     let decimalTime = Double(hour) + Double(minute) / 60.0
     return decimalTime
   }
-
+  
   func sunsetDecimalTime(for time: Date, at location: CLLocationCoordinate2D, timeZone: TimeZone) -> Double {
     let solar = Solar(for: time, coordinate: location)
     guard let sunset = solar?.sunset else {
       return 24.0
     }
-
+    
     let components = Calendar.current.dateComponents(in: timeZone, from: sunset)
     guard
       let hour = components.hour,
@@ -70,7 +70,7 @@ struct DaytimeGraphicsView: View {
     let decimalTime = Double(hour) + Double(minute) / 60.0
     return decimalTime
   }
-
+  
   var body: some View {
     Canvas { context, size in
       let sunrisePosition = sunriseDecimalTime(
@@ -93,6 +93,7 @@ struct DaytimeGraphicsView: View {
         Path(preDawnRect),
         // 4
         with: .color(.black))
+      
       let dayRect = CGRect(
         x: sunrisePosition,
         y: 0,
@@ -101,6 +102,7 @@ struct DaytimeGraphicsView: View {
       context.fill(
         Path(dayRect),
         with: .color(.blue))
+      
       let eveningRect = CGRect(
         x: sunsetPosition,
         y: 0,
@@ -109,6 +111,7 @@ struct DaytimeGraphicsView: View {
       context.fill(
         Path(eveningRect),
         with: .color(.black))
+      
       // 1
       for hour in [0, 12] {
         // 2
@@ -125,16 +128,20 @@ struct DaytimeGraphicsView: View {
           with: .color(.yellow),
           lineWidth: 3.0)
       }
+      
+      
     }
+    
   }
 }
+
 
 struct DaytimeView_Previews: PreviewProvider {
   static var previews: some View {
     DaytimeGraphicsView(
       date: Date(),
       location: ClockLocation.locationChicago)
-      .frame(height: 30)
-      .padding()
+    .frame(height: 30)
+    .padding()
   }
 }

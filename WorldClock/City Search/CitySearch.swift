@@ -36,7 +36,6 @@ import MapKit
 struct CitySearch: View {
   @State var locations: ClockLocationStorage
   @ObservedObject var locationSearch = LocationSearchService()
-
   var body: some View {
     VStack {
       List {

@@ -35,7 +35,7 @@ import MapKit
 import Combine
 
 class LocationSearchService: NSObject, ObservableObject {
-  @Published var searchText: String = ""
+  @Published var searchText = ""
   @Published var searchResults: [MKLocalSearchCompletion] = []
 
   private var queryCancellable: AnyCancellable?

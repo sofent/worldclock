@@ -51,16 +51,15 @@ struct LocationDetailsView: View {
 
   var body: some View {
     TimelineView(.animation) { context in
-      VStack {
-        Text(location.name)
-          .font(.title)
-        Text(timeInLocalTimeZone(context.date, showSeconds: showSeconds))
-        Text(location.timeZone.localizedName(for: .generic, locale: Locale.current) ?? "Unknown")
-        AnalogClock(
-          time: context.date,
-          location: location)
-        Spacer()
-      }
+    VStack {
+      Text(location.name)
+        .font(.title)
+      Text(timeInLocalTimeZone(context.date, showSeconds: showSeconds))
+      Text(location.timeZone.localizedName(for: .generic, locale: Locale.current) ?? "Unknown")
+      AnalogClock(time: context.date, location: location)
+      Spacer()
+    }
+      
     }
   }
 }

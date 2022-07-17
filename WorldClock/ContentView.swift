@@ -35,45 +35,99 @@ import SwiftUI
 struct ContentView: View {
   @AppStorage("Locations") var storedLocations = ""
   @StateObject var locations = ClockLocationStorage()
+  @State var startDate :Date = .distantPast
+  @State var curtab:Int = 1
+  @State var countDownSec = 0
   var firstLocation: ClockLocation? {
     return locations.locations.first
   }
-
+  
   var body: some View {
-    NavigationView {
-      TimelineView(.everyMinute) { context in
-        List(locations.locations) { location in
-          NavigationLink(
-            destination: LocationDetailsView(
-              location: location)) {
-                LocationView(
-                  location: location,
-                  currentDate: context.date,
-                  firstLocation: firstLocation)
+    TabView(selection:$curtab){
+      NavigationView {
+        TimelineView(.everyMinute) { context in
+          List(locations.locations) { location in
+            NavigationLink(
+              destination: LocationDetailsView(
+                location: location)) {
+                  
+                  LocationView(
+                    location: location,
+                    currentDate: context.date,
+                    firstLocation: firstLocation)
+                  
+                  
+                }
+                .clipShape(Rectangle())
           }
-          .clipShape(Rectangle())
-        }
-        .onAppear {
-          if !storedLocations.isEmpty {
-            locations.loadLocations(stored: storedLocations)
+          .onAppear {
+            if !storedLocations.isEmpty {
+              locations.loadLocations(stored: storedLocations)
+            }
           }
-        }
-        .onChange(of: locations.locations) { _ in
-          storedLocations = locations.locationsAsString
-          print("Updated stored location: \(storedLocations)")
-        }
-        .navigationTitle("World Clock")
-        .toolbar {
-          ToolbarItemGroup(placement: .bottomBar) {
-            Spacer()
-            NavigationLink {
-              CitySearch(locations: locations)
-            } label: {
-              Image(systemName: "map")
+          .onChange(of: locations.locations) { _ in
+            storedLocations = locations.locationsAsString
+            print("Updated stored location: \(storedLocations)")
+          }
+          .navigationTitle("World Clock")
+          .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+              Spacer()
+              NavigationLink {
+                CitySearch(locations: locations)
+              } label: {
+                Image(systemName: "map")
+              }
             }
           }
         }
-      }
+        
+      }.tabItem{
+        Image(systemName: "clock.fill")
+        Text("Clock")
+      }.tag(0)
+      
+      NavigationView {
+        TimelineView(.animation) { context in
+          VStack{
+           
+            if startDate != .distantPast {
+              let timeRemain = (Double(countDownSec) - context.date.timeIntervalSince(startDate))/60
+              if timeRemain > 0{
+                Text("\(Int(timeRemain*60))").padding(.vertical).font(.largeTitle)
+               
+                  
+                  CountdownAnalogView(countDown: timeRemain)
+                  
+                
+              }else{
+                Text("time is over").font(.largeTitle.bold())
+                Button("reset"){
+                  self.startDate = .distantPast
+                  self.countDownSec = 0
+                }.buttonStyle(.borderedProminent).padding(.vertical)
+              }
+            }
+          }.onAppear{
+            //self.startDate = .now
+          }
+          .navigationTitle("Countdown Clock")
+        }.frame(maxWidth:.infinity,maxHeight: .infinity)
+        .overlay{
+          if startDate == .distantPast{
+            VStack{
+              PickerView(seconds: $countDownSec)
+              Button("start"){
+                self.startDate = .now
+              }.disabled(countDownSec==0)
+            }}
+        }
+        
+      }.tabItem{
+        Image(systemName: "digitalcrown.arrow.counterclockwise.fill")
+        Text("Countdown")
+      }.tag(1)
+      
     }
   }
 }
